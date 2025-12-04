@@ -46,8 +46,8 @@ int main()
   const char *input =
     "(repeat 10 (do\n"
       "(print 'hi')\n"
-      "print (add 1 2 3 4 5))\n"
-    ")";
+      "(print (add 1 2 3 4 5))\n"
+    "))";
   while ((lskipspace(&input), *input))
     lexec(&input, command, false);
   printf("ok\n");
