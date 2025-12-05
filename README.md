@@ -1,4 +1,8 @@
-tclisp: small (50 lines of C) lisp-like interpreter with tons of memory leaks.
+tclisp: small (50 lines) lisp-like interpreter
+
+- c version: with tons of memory leaks
+- c++ version: without memory leaks
+
 
 It's tcl + lisp
 
