@@ -36,6 +36,14 @@ char *command(const char **src)
       lexec(&ptr, command, false);
     } 
     return "";
+  } else if (strcmp(fnc, "exec") == 0) {
+    char *value = lparam(src, command, false);
+    if (*value == '[') {
+      value[0] = '(';
+      value[strlen(value)-1] = ')';
+    }
+    const char *ptr = value+1;
+    return command(&ptr);
   }
 
   return "";
@@ -46,7 +54,7 @@ int main()
   const char *input =
     "(repeat 10 (do\n"
       "(print 'hi')\n"
-      "(print [add 1 2 3 4 5])\n"
+      "(print (exec [add 1 2 3 4 5]))\n"
     "))";
   while ((lskipspace(&input), *input))
     lexec(&input, command, false);
